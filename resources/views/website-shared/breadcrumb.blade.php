@@ -12,6 +12,10 @@
                 @endisset
             @endforeach
         </ol>
-
+        <h5 style="color: #fff">
+            @isset($sub_title)
+                {{ $sub_title }}
+            @endisset
+        </h5>
     </div>
 </div><!-- End Breadcrumbs -->

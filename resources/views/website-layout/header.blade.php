@@ -1,8 +1,11 @@
+@php
+    $cr = Route::currentRouteName();
+@endphp
 <!-- ======= Header ======= -->
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-        <a href="index.html" class="logo d-flex align-items-center">
+        <a href="/" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
             <h1 class="d-flex align-items-center">Nova</h1>
@@ -13,32 +16,19 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li class="dropdown"><a href="#"><span>Dropdown</span> <i
-                            class="bi bi-chevron-down dropdown-indicator"></i></a>
-                    <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                    class="bi bi-chevron-down dropdown-indicator"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Dropdown 1</a></li>
-                                <li><a href="#">Deep Dropdown 2</a></li>
-                                <li><a href="#">Deep Dropdown 3</a></li>
-                                <li><a href="#">Deep Dropdown 4</a></li>
-                                <li><a href="#">Deep Dropdown 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/" @class(['active' => $cr == 'home.view'])>Home</a></li>
+                <li><a href="/about" @class(['active' => $cr == 'about.view'])>About</a></li>
+                <li><a href="/services" @class(['active' => $cr == 'services.view'])>Services</a></li>
+                <li><a href="/portfolios" @class(['active' => $cr == 'portfolio.view.all' || $cr == 'portfolio.view.single'])>Portfolio</a></li>
+                <li><a href="/team" @class(['active' => $cr == 'team.view'])>Team</a></li>
+                <li><a href="/blog" @class([
+                    'active' =>
+                        $cr == 'blog.view.all' ||
+                        $cr == 'blog.view.single' ||
+                        $cr == 'blog.category.view' ||
+                        $cr == 'blog.tag.view',
+                ])>Blog</a></li>
+                <li><a href="/contact" @class(['active' => $cr == 'contact.view'])>Contact</a></li>
             </ul>
         </nav><!-- .navbar -->
 
