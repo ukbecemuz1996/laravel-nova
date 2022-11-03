@@ -3,6 +3,8 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
+use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
@@ -41,3 +43,16 @@ Route::get('/blog/tag/{id}', [BlogController::class, 'tag'])->name('blog.tag.vie
 Route::get('/blog/{id}', [BlogController::class, 'read'])->name('blog.view.single');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact.view');
+
+// Dashboard Routes
+
+Route::prefix('dashboard')->group(function () {
+
+    Route::get('/', [DashboardHomeController::class, 'index']);
+
+    // Sections
+    Route::prefix('sections')->group(function () {
+        Route::get('/hero', [SectionController::class, 'hero']);
+        Route::post('/hero', [SectionController::class, 'hero']);
+    });
+});
