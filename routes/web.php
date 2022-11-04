@@ -5,6 +5,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
 use App\Http\Controllers\Dashboard\SectionController;
+use App\Http\Controllers\Dashboard\ServicesController as DashboardServicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
@@ -51,8 +52,35 @@ Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardHomeController::class, 'index']);
 
     // Sections
-    Route::prefix('sections')->group(function () {
-        Route::get('/hero', [SectionController::class, 'hero']);
-        Route::post('/hero', [SectionController::class, 'hero']);
+    Route::prefix('sections')->name('section.')->group(function () {
+        // hero section
+        Route::get('/hero', [SectionController::class, 'hero'])->name('hero.view');
+        Route::post('/hero', [SectionController::class, 'hero'])->name('hero.action');
+
+        // why choose us section
+        Route::get('/why-choose-us', [SectionController::class, 'whyChooseUs'])->name('why-choose-us.view');
+        Route::post('/why-choose-us', [SectionController::class, 'whyChooseUs'])->name('why-choose-us.action');
+
+        // call to action section
+        Route::get('/call-to-action', [SectionController::class, 'callToAction'])->name('call-to-action.view');
+        Route::post('/call-to-action', [SectionController::class, 'callToAction'])->name('call-to-action.action');
+
+        // call to action section
+        Route::get('/powerful-features', [SectionController::class, 'powerfulFeatures'])->name('powerful-features.view');
+        Route::post('/powerful-features', [SectionController::class, 'powerfulFeatures'])->name('powerful-features.action');
+
+        // call to action section
+        Route::get('/contact-details', [SectionController::class, 'contactDetails'])->name('contact-details.view');
+        Route::post('/contact-details', [SectionController::class, 'contactDetails'])->name('contact-details.action');
+
+    });
+
+    Route::prefix('services')->name('services.')->group(function () {
+        Route::get('/', [DashboardServicesController::class, 'index'])->name('list.view');
+        Route::get('/create', [DashboardServicesController::class, 'create'])->name('create.view');
+        Route::post('/store', [DashboardServicesController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [DashboardServicesController::class, 'edit'])->name('edit.view');
+        Route::put('/update/{id}', [DashboardServicesController::class, 'update'])->name('update');
+        Route::delete('/delete/{id}', [DashboardServicesController::class, 'delete'])->name('delete');
     });
 });

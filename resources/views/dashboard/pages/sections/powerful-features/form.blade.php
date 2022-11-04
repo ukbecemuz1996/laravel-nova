@@ -1,6 +1,6 @@
 @extends('dashboard.layout.layout')
 
-@section('page-title', 'Hero Section');
+@section('page-title', 'Powerful Features Section');
 
 @section('main-content')
     <!-- Content Wrapper. Contains page content -->
@@ -10,13 +10,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Hero</h1>
+                        <h1>Powerful Features</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Sections</li>
-                            <li class="breadcrumb-item active">Hero</li>
+                            <li class="breadcrumb-item active">Powerful Features</li>
                         </ol>
                     </div>
                 </div>
@@ -32,19 +32,31 @@
                         <!-- general form elements -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Hero Section</h3>
+                                <h3 class="card-title">Powerful Features Section</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ route('section.hero.action') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('section.powerful-features.action') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="title">Title</label>
-                                        <input name="title" type="text"
-                                            class="form-control @error('title') is-invalid  @enderror" id="title"
-                                            placeholder="Enter title" value="{{ old('title', $sectionData['title']) }}">
-                                        @error('title')
+                                        <label for="title1">Title 1</label>
+                                        <input name="title1" type="text"
+                                            class="form-control @error('title1') is-invalid  @enderror" id="title1"
+                                            placeholder="Enter title 1" value="{{ old('title1', $sectionData['title1']) }}">
+                                        @error('title1')
+                                            <span id="exampleInputEmail1-error"
+                                                class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="title2">Title 2</label>
+                                        <input name="title2" type="text"
+                                            class="form-control @error('title2') is-invalid  @enderror" id="title2"
+                                            placeholder="Enter title 1" value="{{ old('title2', $sectionData['title2']) }}">
+                                        @error('title2')
                                             <span id="exampleInputEmail1-error"
                                                 class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
@@ -71,25 +83,16 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="watch_video_link">Watch video link</label>
-                                        <input name="watch_video_link" type="text"
-                                            class="form-control @error('watch_video_link') is-invalid  @enderror"
-                                            id="watch_video_link" placeholder="Enter watch video link"
-                                            value="{{ old('watch_video_link', $sectionData['watch_video_link']) }}">
-                                        @error('watch_video_link')
-                                            <span id="exampleInputEmail1-error"
-                                                class="error invalid-feedback">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="image">Select Hero Image</label>
+                                        <label for="image">Select Image</label>
                                         <div class="custom-file">
-                                            <input name="image" type="file" class="custom-file-input @error('image') is-invalid  @enderror" id="image">
+                                            <input name="image" type="file"
+                                                class="custom-file-input @error('image') is-invalid  @enderror"
+                                                id="image">
                                             <label class="custom-file-label" for="image">Choose Image</label>
                                         </div>
                                         @error('image')
-                                            <span id="exampleInputEmail1-error"
-                                                class="error invalid-feedback" style="display: block;">{{ $message }}</span>
+                                            <span id="exampleInputEmail1-error" class="error invalid-feedback"
+                                                style="display: block;">{{ $message }}</span>
                                         @enderror
                                     </div>
                                 </div>

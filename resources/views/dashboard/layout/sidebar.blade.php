@@ -43,43 +43,31 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
+                            <a href="{{ route('section.hero.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Hero</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                            <a href="{{ route('section.why-choose-us.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Why Choose Us</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/boxed.html" class="nav-link">
+                            <a href="{{ route('section.call-to-action.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Call to Action</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                            <a href="{{ route('section.powerful-features.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Powerful Features</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Recent Posts</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Our Branches</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                            <a href="{{ route('section.contact-details.view') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Contact</p>
                             </a>
