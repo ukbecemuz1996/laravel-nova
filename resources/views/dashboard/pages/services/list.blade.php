@@ -42,25 +42,29 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1.</td>
-                                            <td>Update software</td>
-                                            <td>
-                                                Test Title
-                                            </td>
-                                            <td>Test Description</td>
-                                            <td>
-                                                <a href="{{ route('services.edit.view', ['id' => 2]) }}"
-                                                    class="btn btn-outline-warning btn-xs">Edit</a>
-                                                <br />
-                                                <form action="{{ route('services.delete', ['id' => 2]) }}" method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit"
-                                                        class="btn btn-outline-danger btn-xs">Delete</button>
-                                                </form>
-                                            </td>
-                                        </tr>
+                                        @foreach ($services as $service)
+                                            <tr>
+                                                <td>{{ $service->id }}.</td>
+                                                <td>{{ $service->icon }}</td>
+                                                <td>
+                                                    {{ $service->title }}
+                                                </td>
+                                                <td>{{ $service->description }}</td>
+                                                <td>
+                                                    <a href="{{ route('services.edit.view', ['id' => $service->id]) }}"
+                                                        class="btn btn-outline-warning btn-xs">Edit</a>
+                                                    <br />
+                                                    <form action="{{ route('services.delete', ['id' => $service->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit"
+                                                            class="btn btn-outline-danger btn-xs">Delete</button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>
