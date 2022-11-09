@@ -76,7 +76,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-cog"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Settings
                         </p>
@@ -84,7 +85,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fab fa-slideshare"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Why Choose Us Slider
                         </p>
@@ -92,7 +94,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-server"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Services
                         </p>
@@ -100,7 +103,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-star"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Features
                         </p>
@@ -108,7 +112,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-code-branch"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Branches
                         </p>
@@ -116,7 +121,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-comments"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Testimonials
                         </p>
@@ -124,7 +130,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <i class="nav-icon fas fa-project-diagram"></i>
+                        {{-- <i class="nav-icon fas fa-chart-pie"></i> --}}
                         <p>
                             Portfolio
                             <i class="right fas fa-angle-left"></i>
@@ -147,7 +154,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-users"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Team
                         </p>
@@ -155,7 +163,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <i class="nav-icon fas fa-rss"></i>
+                        {{-- <i class="nav-icon fas fa-chart-pie"></i> --}}
                         <p>
                             Blog
                             <i class="right fas fa-angle-left"></i>
@@ -184,7 +193,8 @@
                 </li>
                 <li class="nav-item">
                     <a href="/dashboard" class="nav-link">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <i class="nav-icon fas fa-address-book"></i>
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                         <p>
                             Contact Messages
                         </p>
