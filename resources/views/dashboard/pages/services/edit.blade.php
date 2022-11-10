@@ -36,7 +36,7 @@
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
-                            <form action="{{ route('services.update', ['id' => 4]) }}" method="POST"
+                            <form action="{{ route('services.update', ['id' => $service['id']]) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -61,7 +61,16 @@
                                             <span id="exampleInputEmail1-error"
                                                 class="error invalid-feedback">{{ $message }}</span>
                                         @enderror
-
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="icon_color">Icon Color</label>
+                                        <input name="icon_color" type="color"
+                                            class="form-control @error('icon_color') is-invalid  @enderror" id="icon_color"
+                                            value="{{ old('icon_color', $service['icon_color']) }}">
+                                        @error('icon_color')
+                                            <span id="exampleInputEmail1-error"
+                                                class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>

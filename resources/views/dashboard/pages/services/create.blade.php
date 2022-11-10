@@ -62,6 +62,16 @@
 
                                     </div>
                                     <div class="form-group">
+                                        <label for="icon_color">Icon Color</label>
+                                        <input name="icon_color" type="color"
+                                            class="form-control @error('icon_color') is-invalid  @enderror" id="icon_color"  value="{{ old('icon_color') }}">
+                                        @error('icon_color')
+                                            <span id="exampleInputEmail1-error"
+                                                class="error invalid-feedback">{{ $message }}</span>
+                                        @enderror
+
+                                    </div>
+                                    <div class="form-group">
                                         <label for="description">Description</label>
                                         <textarea name="description" class="form-control @error('description') is-invalid  @enderror" id="description"
                                             placeholder="Enter description">{{ old('description') }}</textarea>

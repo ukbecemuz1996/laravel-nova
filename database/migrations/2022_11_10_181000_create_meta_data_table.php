@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('meta_data', function (Blueprint $table) {
             $table->id();
-            $table->string('icon');
-            $table->string('icon_color');
-            $table->string('title');
-            $table->text('description');
-            $table->timestamps(); //created_at , updated_at
+            $table->text('meta_key');
+            $table->longText('meta_value')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('meta_data');
     }
 };
