@@ -4,12 +4,15 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
+use App\Http\Controllers\Dashboard\ProjectsController;
 use App\Http\Controllers\Dashboard\SectionController;
 use App\Http\Controllers\Dashboard\ServicesController as DashboardServicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TeamController;
+use App\Models\Project;
+use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -83,4 +86,66 @@ Route::prefix('dashboard')->group(function () {
         Route::put('/update/{id}', [DashboardServicesController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [DashboardServicesController::class, 'delete'])->name('delete');
     });
+
+    Route::prefix('projects')->name('projects.')->group(function () {
+        Route::get('/', [ProjectsController::class, 'index'])->name('list.view');
+        Route::get('/create', [ProjectsController::class, 'create'])->name('create.view');
+        Route::post('/store', [ProjectsController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProjectsController::class, 'edit'])->name('edit.view');
+        Route::put('/update/{id}', [ProjectsController::class, 'update'])->name('update');
+        Route::delete('/delete/{id}', [ProjectsController::class, 'delete'])->name('delete');
+    });
+});
+
+Route::get('/test-project', function () {
+    // $project = new Project();
+    // $project->cover_image = '97d50slj0ws552abe90e.jpg';
+    // $project->title = 'Mobile Application';
+    // $project->subtitle = 'Flutter';
+    // $project->client = 'Maps';
+    // $project->description = 'Test Description';
+    // $project->images = 'wfdewdewdew';
+    // $project->project_date = '2022-11-11';
+
+    // $project->save();
+
+    // $category = new ProjectCategory();
+    // $category->name = "Mobile Development";
+    // $category->save();
+
+    // $category = new ProjectCategory();
+    // $category->name = "Security";
+    // $category->save();
+
+    // $project = Project::find(1);
+    // $category = ProjectCategory::find(1);
+
+    // $project->categories()->attach([1,2,3]);
+    // $project->categories()->sync([1, 3]);
+
+    // $projects = Project::all();
+
+    // foreach ($projects as $project) {
+    //     foreach ($project->categories as $cat) {
+    //         echo $cat->name . "<br>";
+    //     }
+    //     echo "------------------- <br>";
+    // }
+
+    // $cats = ProjectCategory::all();
+
+    $cats = ProjectCategory::with('projects')->get();
+
+
+
+    foreach ($cats as $cat) {
+        echo "Categoriy: ". $cat->name. " has ".$cat->projects->count()." projects <br>";
+        // foreach ($cat->projects as $project) {
+        //     echo $project->id . "<br>";
+        //     echo $project->title . "<br>";
+        // }
+        // echo $cat->id . "<br>";
+        // echo "------------------- <br>";
+    }
+
 });
