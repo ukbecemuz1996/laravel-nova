@@ -16,7 +16,9 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="{{ route('profile.view') }}" class="d-block">
+                    {{ Auth::user()->name }}
+                </a>
             </div>
         </div>
 
@@ -200,6 +202,18 @@
                         </p>
                     </a>
                 </li>
+                @if (Auth::user()->is_super_admin)
+                    <li class="nav-item">
+                        <a href="/dashboard/admins" class="nav-link">
+                            <i class="nav-icon fas fa-address-book"></i>
+                            {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                            <p>
+                                Admins
+                            </p>
+                        </a>
+                    </li>
+                @endif
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

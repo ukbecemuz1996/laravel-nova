@@ -23,7 +23,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <form action="">
+            <form action="{{ route('logout.action') }}" method="POST">
+                @csrf
                 <input type="submit" value="Logout" class="btn btn-dark">
             </form>
         </li>

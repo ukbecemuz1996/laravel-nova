@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Dashboard\HomeController as DashboardHomeController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\TeamController;
-use App\Models\Project;
 use App\Models\ProjectCategory;
 use Illuminate\Support\Facades\Route;
 
@@ -50,7 +50,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact.view'
 
 // Dashboard Routes
 
-Route::prefix('dashboard')->group(function () {
+Route::prefix('dashboard')->middleware('auth')->group(function () {
 
     Route::get('/', [DashboardHomeController::class, 'index']);
 
@@ -95,7 +95,22 @@ Route::prefix('dashboard')->group(function () {
         Route::put('/update/{id}', [ProjectsController::class, 'update'])->name('update');
         Route::delete('/delete/{id}', [ProjectsController::class, 'delete'])->name('delete');
     });
+
+    Route::get('/profile', [AuthController::class, 'profile'])->name('profile.view');
+    Route::post('/profile', [AuthController::class, 'profileAction'])->name('profile.action');
+
+    Route::get('/admins', function () {
+        return "admins";
+    })->middleware('superadmin');
+
 });
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login.view');
+    Route::post('/login', [AuthController::class, 'authenticate'])->name('login.action');
+});
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout.action')->middleware('auth');
 
 Route::get('/test-project', function () {
     // $project = new Project();
@@ -136,10 +151,8 @@ Route::get('/test-project', function () {
 
     $cats = ProjectCategory::with('projects')->get();
 
-
-
     foreach ($cats as $cat) {
-        echo "Categoriy: ". $cat->name. " has ".$cat->projects->count()." projects <br>";
+        echo "Categoriy: " . $cat->name . " has " . $cat->projects->count() . " projects <br>";
         // foreach ($cat->projects as $project) {
         //     echo $project->id . "<br>";
         //     echo $project->title . "<br>";
